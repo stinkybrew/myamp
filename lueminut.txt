@@ -1,0 +1,79 @@
+/* Taustalla toimii Node+Express backend-scripti */
+
+GET
+/api/?username=${käyttäjänimi}
+    Palauttaa kuuntelut käyttäjänimen perusteella
+    Palautuva json objektin malli:
+        { 
+        "Artist": String, 
+        "Album": String, 
+        "Title": String, 
+        "Listen_timestamp": String, 
+        "Listen_ID": Int 
+        }
+
+GET
+/api/comments/?username=${id}
+    Palauttaa kommentit käyttäjän ID:n perusteella
+    Palautuva json objektin malli:
+        { 
+        "Comment_ID": Int, 
+        "Comment_text": String,
+        "Commenter_ID":2,
+        "User_ID":1 
+        }
+
+POST
+/api/comments/
+    Lähettää kommentin tietokantaan
+    Lähetettävän json-objektin malli:
+        {
+        "Comment_text": this.commentInput,
+        "Commenter_ID": this.passedId,
+        "User_ID": this.passedId, 
+        }
+
+POST
+/api/addlisten/
+    Lähettää kuuntelun tietokantaan
+    Lähetettävän json-objektin malli:
+        {
+        "artist": String,
+        "album": String,
+        "title": String,
+        "userId": Int,
+        }
+
+DELETE
+/api/deletelisten/?userId=${id}
+    Poistaa kuuntelun käyttäjän ID:n perusteella
+
+GET
+/api/userdata/?id=${id}
+/api/userdata/?username=${käyttäjänimi}
+    Palauttaa käyttäjän tiedot ID:n tai käyttäjänimen perusteella
+    Palautuvan json-objektin malli:
+        { 
+        "Username": String,
+        "Profile_picture": String,
+        "User_ID": Int,
+        }
+
+GET
+/api/logindata/?username=${käyttäjänimi}
+    Palauttaa vähän käyttäjätietoja jotta voidaan tarkastaa onko se jo tietokannassa
+    Palautuvan json-objektin malli:
+        {
+        "User_ID": Int,
+        "Username": String,
+        }
+
+POST
+/api/register/
+    Lisää käyttäjän tietokantaan
+    Lähetettävän json-objektin malli:
+        {
+        "username": String,
+        "password": String,
+        }
+

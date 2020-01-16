@@ -1,0 +1,11 @@
+[package]
+name = "kuuntelu"
+version = "0.0.1"
+authors = ["jarr <>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = "0.9.22"
+serde = "1.0.103"
